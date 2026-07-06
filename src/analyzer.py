@@ -74,6 +74,16 @@ def analyze_password(password):
             else:
                 entropy_rating = "Excellent"
 
+
+            search_space = character_set ** report["length"] if character_set > 0 else 0
+
+            average_guesses = search_space / 2
+
+            guesses_per_second = 100_000_000_000  # illustrative value
+
+            seconds = average_guesses / guesses_per_second if guesses_per_second else 0
+
+
             if score <= 2:
                 strength = "Weak"
             elif score <= 4:
